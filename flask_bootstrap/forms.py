@@ -48,7 +48,7 @@ class WTFormsRenderer(Visitor):
                        classes=['form-control'], **kwargs):
         wrap = self._get_wrap(node)
         wrap.add(tags.label(node.label.text, _for=node.id))
-        wrap.add(tags.input(type=type, _class=' '.join(classes), **kwargs))
+        wrap.add(tags.input_(type=type, _class=' '.join(classes), **kwargs))
 
         return wrap
 
@@ -56,7 +56,7 @@ class WTFormsRenderer(Visitor):
         wrap = self._get_wrap(node, classes='checkbox')
 
         label = wrap.add(tags.label(_for=node.id))
-        label.add(tags.input(type='checkbox'))
+        label.add(tags.input_(type='checkbox'))
         label.add(node.label.text)
 
         return wrap
